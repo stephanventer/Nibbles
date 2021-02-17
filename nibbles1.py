@@ -26,7 +26,14 @@ def writetext(text, x, y, color=(0,0,0), fontsize=24):
 #draw worm
 def drawworm(wrm_x, wrm_y):
     for i in range(len(worm_x)):
-        pygame.draw.circle(screen, (204, 51, 255), (worm_x[i], worm_y[i]), 20)
+        #draw worm shadow
+        pygame.draw.circle(screen, (77, 0, 77), (worm_x[i]-1, worm_y[i]+2), 15)
+
+    for i in range(len(worm_x)):
+        #draw worm body
+        pygame.draw.circle(screen, (153, 0, 153), (worm_x[i], worm_y[i]), 15)
+
+
 
 #initialize the main game loop
 running = True
@@ -35,7 +42,7 @@ while running:
     screen.fill((92, 230, 131))
 
     #speed of game
-    pygame.time.delay(50)
+    pygame.time.delay(70)
 
     #go through events and see if close button was click
     for event in pygame.event.get():
